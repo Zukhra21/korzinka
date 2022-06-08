@@ -1,0 +1,58 @@
+{% extends "products/base.html" %}
+{% block content %}
+<style>
+    table{
+        margin-bottom: 50px;
+    }
+</style>
+
+    <h1> Customer</h1>
+    {% if customers %}
+        <table class="tabel table-striped table-bordered mb-4">
+        <thead class="table-dark">
+            <tr>
+                <th class="py-1 px-3">Name</th>
+                <th class="py-1 px-3">Phone</th>
+                <th class="py-1 px-3">Email</th>
+                <th class="py-1 px-3">date_create</th>
+                <th class="py-1 px-3">Edit</th>
+                <th class="py-1 px-3">Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in customers %}
+                <tr>
+                    <td class="py-1 px-3">
+                        {{ object.name }}
+                    </td>
+                    <td class="py-1 px-3">
+                        {{ object.phone }}
+                    </td>
+                    <td class="py-1 px-3">
+                        {{ object.email }}
+                    </td>
+                    <td class="py-1 px-3">
+                        {{ object.date_created }}
+                    </td>
+                    <td class="py-1 px-3">
+                        <a href="update/{{object.id}}" class="btn btn-primary a-btn-slide-text">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+                    <td class="py-1 px-3">
+                        <a href="delete/{{object.id}}" class="btn btn-danger a-btn-slide-text">
+                            <i class="bi bi-x"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <a href="{% url 'ProductsApp:createCustomer' %}" class="mb-1 w-20 btn btn-success a-btn-slide-text">
+        <i class="bi bi-plus"></i>
+        <span><strong>Add</strong></span>
+    </a>
+{% endblock %}
+

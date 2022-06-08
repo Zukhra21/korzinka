@@ -1,0 +1,43 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+<br>
+<h1>User page</h1>
+<table class="tabel table-striped table-bordered mb-4">
+    <thead class="table-dark">
+        <tr>
+            <th class="py-1 px-3">Name</th>
+            <th class="py-1 px-3">Phone number</th>
+            <th class="py-1 px-3">Email</th>
+            <th class="py-1 px-3">date_create</th>
+            <th class="py-1 px-3">Products</th>
+            <th class="py-1 px-3">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="py-1 px-3">
+                {{  request.user.customer.name }}
+            </td>
+            <td class="py-1 px-3">
+                {{  request.user.customer.phone }}
+            </td>
+            <td class="py-1 px-3">
+                {{ request.user.email }}
+            </td>
+            <td class="py-1 px-3">
+                {{ request.user.customer.date_created }}
+            </td>
+            <td class="py-1 px-3">
+                {{  Order.products }}
+            </td>
+
+            <td class="py-1 px-3">
+                <img src="{{ request.user.customer.profilepic.url }}" alt="" width="50" height="50">
+            </td>
+        </tr>
+    </tbody>
+</table>
+{{userorders}}
+
+{% endblock %}

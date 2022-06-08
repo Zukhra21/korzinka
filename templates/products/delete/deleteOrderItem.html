@@ -1,0 +1,22 @@
+{% extends 'products/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<p>"{{ item }}" malumotni uchirmoqchimisz</p>
+<style>
+    .delete{
+        margin: 400px;
+    }
+</style>
+<div class="delete" style="border: solid black 3px; width: 200px; margin-top: 200px; border-radius: 5px; box-shadow: 5px 10px 18px #888888; padding: 10px;">
+    <p>"{{ item }}" malumotni uchirmoqchimisz</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button  class="btn btn-primary">
+            <a href="{% url 'ProductsApp:home' %}" class="btn-primary">Cancel</a>
+        </button>
+        <button class="btn btn-danger">Delete</button>
+    </form>
+</div>
+{% endblock %}

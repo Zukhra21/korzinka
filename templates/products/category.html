@@ -1,0 +1,44 @@
+{% extends "products/base.html" %}
+{% block content %}
+    <h1>Category</h1>
+    {% if categorys %}
+        <table class="tabel table-striped table-bordered mb-4">
+        <thead class="table-dark">
+            <tr>
+                <th class="py-1 px-3">Name</th>
+                <th class="py-1 px-3">Description</th>
+                <th class="py-1 px-3">Edit</th>
+                <th class="py-1 px-3">Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in categorys %}
+                <tr>
+                    <td class="py-1 px-3">
+                        {{ object.name }}
+
+                    </td>
+                    <td class="py-1 px-3">
+                        {{ object.description }}
+                    </td>
+                    <td class="py-1 px-3">
+                        <a href="update/{{object.id}}" class="btn btn-primary a-btn-slide-text">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+                    <td class="py-1 px-3">
+                        <a href="delete/{{object.id}}" class="btn btn-danger a-btn-slide-text">
+                            <i class="bi bi-x"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <a href="{% url 'ProductsApp:createCategory' %}" class="mb-1 w-20 btn btn-success a-btn-slide-text">
+        <i class="bi bi-plus"></i>
+        <span><strong>Add</strong></span>
+    </a>
+{% endblock %}

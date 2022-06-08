@@ -1,0 +1,68 @@
+{% extends "products/base.html" %}
+{% block content %}
+<h1>This is home page</h1>
+<div class="row">
+    <div class="col-sm">
+        <div>
+            <p>Search by product</p>
+            <form method="GET">
+                {{pfilter.form}}
+                <input type="submit" value="Search" class="btn btn-success btn-sm">
+                <input type="reset" value="Clear" class="btn btn-success btn-sm">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <p>Product categor</p>
+        </div>
+    </div>
+</div>
+<h1>Products</h1>
+    {% if products %}
+        <table class="tabel table-striped table-bordered mb-4">
+            <thead class="table-dark">
+                <tr>
+                    <th class="py-1 px-3">Name</th>
+                    <th class="py-1 px-3">productCode</th>
+                    <th class="py-1 px-3">Price</th>
+                    <th class="py-1 px-3">category</th>
+                    <th class="py-1 px-3">description</th>
+                    <th class="py-1 px-3">date_created</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in products %}
+                    <tr>
+                        <td class="py-1 px-3">
+                            {{ object.name }}
+                        </td>
+                        <td class="py-1 px-3">
+                            {{ object.productCode }}
+                        </td>
+                        <td class="py-1 px-3">
+                            {{ object.price }}
+                        </td>
+                        <td class="py-1 px-3">
+                            {{ object.category }}
+                        </td>
+                        <td class="py-1 px-3">
+                            {{ object.description }}
+                        </td>
+                        <td class="py-1 px-3">
+                            {{ object.date_created }}
+                        </td>
+
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <a href="{% url 'ProductsApp:createProduct' %}" class="mb-3 w-20 btn btn-success a-btn-slide-text">
+        <i class="bi bi-plus"></i>
+        <span><strong>Add</strong></span>
+    </a>
+{% endblock %}

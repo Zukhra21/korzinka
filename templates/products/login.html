@@ -1,0 +1,67 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/sss.css' %}">
+<script src="https://code.jquery.com/jquery-2.1.0.min.js" ></script>
+<title>Title</title>
+</head>
+<body>
+    <form method="POST" action="">
+    {% csrf_token %}
+    <div id="formWrapper">
+        <div id="form">
+            <div class="logo">
+            <h1 class="text-center head">The form</h1>
+            </div>
+            <div class="form-item">
+                <p class="formLabel">Email</p>
+                <input type="text" name="username" id="username" class="form-style"/>
+            </div>
+            <div class="form-item">
+                <p class="formLabel">Password</p>
+                <input type="password" name="password" id="password" class="form-style" />
+                <p><a href="#" ><small>Forgot Password ?</small></a></p>
+            </div>
+            <div class="form-item">
+                <p class="pull-left"><a href="#"><small>Register</small></a></p>
+
+                <input type="submit" class="login pull-right" value="Log In">
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+   $(document).ready(function(){
+	var formInputs = $('input[type="username"],input[type="password"]');
+	formInputs.focus(function() {
+       $(this).parent().children('p.formLabel').addClass('formTop');
+       $('div#formWrapper').addClass('darken-bg');
+       $('div.logo').addClass('logo-active');
+	});
+	formInputs.focusout(function() {
+		if ($.trim($(this).val()).length == 0){
+		$(this).parent().children('p.formLabel').removeClass('formTop');
+		}
+		$('div#formWrapper').removeClass('darken-bg');
+		$('div.logo').removeClass('logo-active');
+	});
+	$('p.formLabel').click(function(){
+		 $(this).parent().children('.form-style').focus();
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<!------ Include the above in your HEAD tag ---------->
+    <form method="POST">
+        {% csrf_token %}
+        <div style="background-color:#41aaa2; height:500px; width:400px; border-radius:30px; text-align:center;" class="col-md-offset-4">
+        <h1 style="text-align:center; padding-top:30px; color:#ffffff;">Sign Up</h1>
+        <div class="col-sm-12" style="padding-top:10px;">
+            {{form.username.label}}
+            <br>
+            {{form.username}}
+        </div>
+        <div class="col-sm-12" style="padding-top:10px;">
+            {{form.first_name.label}}
+            <br>
+            {{form.first_name}}
+        </div>
+        <div class="col-sm-12" style="padding-top:10px;">
+            {{form.last_name.label}}
+            <br>
+            {{form.last_name}}
+        </div>
+        <div class="col-sm-12" style="padding-top:10px;">
+            {{form.email.label}}
+            <br>
+            {{form.email}}
+        </div>
+        <div class="col-sm-12" style="padding-top:10px;">
+            {{form.password1.label}}
+            <br>
+            {{form.password1}}
+        </div>
+
+            <div class="col-sm-12" style="padding-top:10px;">
+            {{form.password2.label}}
+            <br>
+            {{form.password2}}
+        </div>
+
+        <button class="col-md-4 col-md-offset-4 btn" style="background-color:#ffffff; color:#626a69; font-size:20px; margin-top:10px;" type="submit"> Submit
+        </button>
+        </div>
+
+    </div>
+        <p class="text-align:center"><a href="http://127.0.0.1:8000/register/"><small>Sign in</small></a></p>
+
+    </form>
+    <div class="span12" style="text-align:center">
+    <a href="http://127.0.0.1:8000/register/">
+      <button class="btn btn-large btn-primary">sign in</button>
+    </a>
+    <!-- TODO: This is for server side, there is another version for browser defaults -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
